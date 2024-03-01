@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Random Generator</title>
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        background-color: #f4f4f4;
+    }
+    .container {
+        text-align: center;
+    }
+    h1 {
+        margin-bottom: 20px;
+    }
+    ul {
+        list-style-type: none;
+        padding: 0;
+    }
+    li {
+        margin-bottom: 10px;
+    }
+    button {
+        margin-top: 10px;
+        padding: 8px 20px;
+        background-color: #007bff;
+        color: white;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+    }
+    button:hover {
+        background-color: #0056b3;
+    }
+</style>
+</head>
+<body>
+<div class="container">
+    <h1>Random Generator</h1>
+    <button onclick="generateAll()">Generate All</button>
+    <ul>
+        <li>
+            <span>Name: </span>
+            <span contenteditable="true" id="name"></span>
+        </li>
+        <li>
+            <span>Number: </span>
+            <span contenteditable="true" id="number"></span>
+        </li>
+        <li>
+            <span>Day of the Week: </span>
+            <span contenteditable="true" id="dayOfWeek"></span>
+        </li>
+        <li>
+            <span>Time: </span>
+            <span contenteditable="true" id="time"></span>
+        </li>
+        <li>
+            <span>Color: </span>
+            <span contenteditable="true" id="color"></span>
+        </li>
+        <li>
+            <span>Town: </span>
+            <span contenteditable="true" id="town"></span>
+        </li>
+        <li>
+            <span>Sport: </span>
+            <span contenteditable="true" id="sport"></span>
+        </li>
+    </ul>
+</div>
+
+<script>
+    function generateName() {
+        const names = ['Alice', 'Bob', 'Charlie', 'David', 'Emma', 'Frank', 'Grace', 'Henry', 'Isabella', 'Jack',
+                       'James', 'John', 'William', 'Mary', 'Robert', 'Michael', 'David', 'Joseph', 'Richard', 'Patricia',
+                       'Linda', 'Barbara', 'Elizabeth', 'Jennifer', 'Maria', 'Susan', 'Margaret', 'Dorothy', 'Lisa', 'Nancy'];
+        return names[Math.floor(Math.random() * names.length)];
+    }
+
+    function generateNumber() {
+        return Math.floor(Math.random() * 100) + 1;
+    }
+
+    function generateDayOfWeek() {
+        const days = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
+        return days[Math.floor(Math.random() * days.length)];
+    }
+
+    function generateTime() {
+        const hours = Math.floor(Math.random() * 11) + 8; // Random hours between 8 and 6
+        const minutes = ['00', '15', '30', '45'][Math.floor(Math.random() * 4)];
+        const ampm = hours < 12 ? 'AM' : 'PM';
+        return `${hours % 12 || 12}:${minutes} ${ampm}`;
+    }
+
+    function generateColor() {
+        const colors = ['Red', 'Blue', 'Green', 'Yellow', 'Orange', 'Purple', 'Pink', 'Brown', 'Black', 'White'];
+        return colors[Math.floor(Math.random() * colors.length)];
+    }
+
+    function generateTown() {
+        const towns = ['Albany', 'Schenectady', 'Troy', 'Clifton Park', 'Saratoga Springs', 'Colonie', 'Rensselaer', 'Guilderland', 'Latham', 'Delmar', 'East Greenbush', 'Niskayuna', 'Cohoes', 'Ballston Spa', 'Watervliet'];
+        return towns[Math.floor(Math.random() * towns.length)];
+    }
+
+    function generateSport() {
+        const sports = ['Football', 'Basketball', 'Baseball', 'Soccer', 'Tennis', 'Golf', 'Hockey', 'Swimming', 'Volleyball', 'Running'];
+        return sports[Math.floor(Math.random() * sports.length)];
+    }
+
+    function generateAll() {
+        document.getElementById('name').innerText = generateName();
+        document.getElementById('number').innerText = generateNumber();
+        document.getElementById('dayOfWeek').innerText = generateDayOfWeek();
+        document.getElementById('time').innerText = generateTime();
+        document.getElementById('color').innerText = generateColor();
+        document.getElementById('town').innerText = generateTown();
+        document.getElementById('sport').innerText = generateSport();
+    }
+</script>
+</body>
+</html>
