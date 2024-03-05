@@ -97,6 +97,11 @@
           <span>Sport:</span>
           <span class="item" contenteditable="true" id="sport"></span>
         </li>
+          <li>
+          <button class="refresh" onclick="generateCar()">🔄</button>
+          <span>Car:</span>
+          <span class="item" contenteditable="true" id="car"></span>
+        </li>
       </ul>
     </div>
 
@@ -228,6 +233,24 @@
         document.getElementById('sport').innerText =
           sports[Math.floor(Math.random() * sports.length)];
       }
+      function generateCar() {
+        const cars = [
+          'Toyota',
+          'Ford',
+          'Chevrolet',
+          'Hyundai',
+          'Nissan',
+          'Honda',
+          'Buick',
+          'Jeep',
+          'Volvo',
+          'Volkswagen',
+          'Kia',
+          'Dodge'
+        ];
+        document.getElementById('car').innerText =
+          cars[Math.floor(Math.random() * cars.length)];
+      }
 
       function generateAll() {
         generateName();
@@ -237,6 +260,7 @@
         generateColor();
         generateTown();
         generateSport();
+        generateCar();
       }
     </script>
   </body>
